@@ -50,6 +50,7 @@ set scrolloff=5 " Show a few lines above/below the cursor when scrolling to top/
 set wrap " Wrap lines
 set laststatus=2 " Always show the status line
 highlight StatusLine ctermfg=gray ctermbg=16
+highlight CocErrorSign ctermfg=11
 
 " Line numbers and signs
 set number
