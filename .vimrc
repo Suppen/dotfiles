@@ -80,6 +80,9 @@ set termencoding=utf-8
 " Turn off backup
 set nobackup
 
+" Make it possible to hide buffers without saving them
+set hidden
+
 """""""
 " CoC "
 """""""
