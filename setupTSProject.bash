@@ -17,7 +17,7 @@ package.scripts = {
 	\"build\": \"tsc\",
 	\"build:dev\": \"tsc --watch --preserveWatchOutput\",
 	\"start\": \"NODE_ENV=\\\"production\\\" node dist/app\",
-	\"start:dev\": \"NODE_ENV=\\\"development\\\" node dist/app\",
+	\"start:dev\": \"NODE_ENV=\\\"development\\\" nodemon dist/app\",
 	\"test\": \"jest\",
 	\"test:dev\": \"jest --watchAll\",
 	\"lint\": \"eslint src/**\",
