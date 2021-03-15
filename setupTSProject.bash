@@ -22,7 +22,11 @@ package.scripts = {
 	\"test:dev\": \"jest --watchAll\",
 	\"lint\": \"eslint src/**\",
 	\"clean\": \"rimraf dist\"
-}
+};
+
+package.jest = {
+	\"rootDir\": \"dist/\"
+};
 
 fs.writeFileSync(\"./package.json\", JSON.stringify(package, null, 2));
 "
