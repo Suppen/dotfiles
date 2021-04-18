@@ -65,9 +65,9 @@ set hls is " Highlight all matches when searching
 set incsearch " Show matches as a search is being typed
 
 " Tab Options
-set shiftwidth=8
-set tabstop=8
-set softtabstop=8
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4
 set noexpandtab
 
 " Delete empty space from the end of lines on every save
@@ -82,6 +82,11 @@ set nobackup
 
 " Make it possible to hide buffers without saving them
 set hidden
+
+" Remember the position in the file when closing it
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
 
 """""""
 " CoC "
