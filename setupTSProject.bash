@@ -14,7 +14,9 @@ const fs = require(\"fs\");
 const package = require(\"./package.json\");
 
 package.scripts = {
+	\"prebuild\": \"npm run clean\",
 	\"build\": \"tsc\",
+	\"prebuild:dev\": \"npm run clean\",
 	\"build:dev\": \"tsc --watch --preserveWatchOutput\",
 	\"start\": \"NODE_ENV=\\\"production\\\" node dist/app\",
 	\"start:dev\": \"NODE_ENV=\\\"development\\\" nodemon dist/app\",
