@@ -59,6 +59,7 @@ highlight LineNr ctermbg=black ctermfg=darkgrey
 set colorcolumn=120
 set textwidth=0
 highlight ColorColumn ctermbg=darkgray
+highlight CocFloating ctermbg=237
 
 " Search options
 set hls is " Highlight all matches when searching
