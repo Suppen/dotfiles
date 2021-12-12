@@ -1,6 +1,3 @@
-" Requires vim-plug: https://github.com/junegunn/vim-plug. Put plug.vim in ~/.vim/autoload
-" After installing vim-plug and this .vimrc, run :PlugInstall in vim
-
 set nocompatible    " be iMproved
 filetype off
 
@@ -8,12 +5,20 @@ filetype off
 " Plugins "
 """""""""""
 
+" Requires vim-plug: https://github.com/junegunn/vim-plug. Put plug.vim in ~/.vim/autoload
+" After installing vim-plug and this .vimrc, run :PlugInstall in vim
+
 " Keep Plug commands between plug#begin() and plug#end().
 call plug#begin()
 
 Plug 'preservim/nerdtree'         " File browser
 
+" Download and install a NerdFont too: https://github.com/ryanoasis/nerd-fonts/releases/tag/v2.1.0
+" Konsole uses the font called Hack
+Plug 'ryanoasis/vim-devicons'     " Fancy icons
+
 Plug 'cohama/lexima.vim'          " Auto-close brackets and the like
+Plug 'tpope/vim-surround'         " Surrond stuff with other stuff
 
 Plug 'pangloss/vim-javascript'    " JavaScript support
 Plug 'leafgarland/typescript-vim' " TypeScript syntax
@@ -27,6 +32,10 @@ Plug 'tpope/vim-rhubarb'          " Git support
 Plug 'vim-airline/vim-airline'    " Better statusline
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Loads of useful plugins
+
+" Requires fzf to be installed on the system to work
+Plug 'junegunn/fzf'               " Set up fzf and fzf.vim
+Plug 'junegunn/fzf.vim'
 
 " All of your Plugins must be added before the following line
 call plug#end()
@@ -86,16 +95,8 @@ highlight StatusLine ctermfg=gray ctermbg=16
 highlight CocErrorSign ctermfg=11
 
 " NERDTree
-" Start NERDTree and put the cursor back in the other window.
-autocmd VimEnter * NERDTree | wincmd p
-" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
-autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
-    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
 " Show hidden files
 let NERDTreeShowHidden=1
-" Exit Vim if NERDTree is the only window remaining in the only tab.
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif"
-
 
 " Wrap long lines and treat them as break lines
 set wrap
@@ -203,9 +204,11 @@ let mapleader = " "
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
 " Remap keys for applying codeAction to the current buffer.
-nmap <leader>ac  <Plug>(coc-codeaction)
+nmap <leader>ac <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
-nmap <leader>qf  <Plug>(coc-fix-current)
+nmap <leader>qf <Plug>(coc-fix-current)
+" Toggle NERDTree
+nmap <leader>nt :NERDTreeToggle<CR>
 
 " Add `:Lint` command, fixing stuff eslint can fix in the current file
 command Lint CocCommand eslint.executeAutofix
