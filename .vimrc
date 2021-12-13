@@ -31,6 +31,10 @@ Plug 'tpope/vim-rhubarb'          " Git support
 
 Plug 'vim-airline/vim-airline'    " Better statusline
 
+Plug 'tpope/vim-commentary'       " Comment/uncomment stuff
+
+Plug 'tpope/vim-repeat'           " Repeat plugin commands
+
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Loads of useful plugins
 
 " Requires fzf to be installed on the system to work
@@ -107,6 +111,7 @@ map k gk
 set number
 set numberwidth=3
 set signcolumn=number
+set relativenumber " Show line numbers as relative to the current one
 set ruler " Show the cursor position in the bottom right corner
 highlight LineNr ctermbg=black ctermfg=darkgrey
 highlight SignColumn ctermbg=black ctermfg=darkgrey
@@ -202,13 +207,15 @@ endfunction
 let mapleader = " "
 
 " Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
+nnoremap <leader>rn <Plug>(coc-rename)
 " Remap keys for applying codeAction to the current buffer.
-nmap <leader>ac <Plug>(coc-codeaction)
+nnoremap <leader>ac <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
-nmap <leader>qf <Plug>(coc-fix-current)
+nnoremap <leader>qf <Plug>(coc-fix-current)
 " Toggle NERDTree
-nmap <leader>nt :NERDTreeToggle<CR>
+nnoremap <leader>nt :NERDTreeToggle<CR>
+" List open buffers
+nnoremap <leader>l :Buffers<CR>
 
 " Add `:Lint` command, fixing stuff eslint can fix in the current file
 command Lint CocCommand eslint.executeAutofix
