@@ -27,7 +27,6 @@ Plug 'jparise/vim-graphql'        " GraphQL syntax
 
 Plug 'airblade/vim-gitgutter'     " Git diff on lines edited
 Plug 'tpope/vim-fugitive'         " Git support
-Plug 'tpope/vim-rhubarb'          " Git support
 
 Plug 'vim-airline/vim-airline'    " Better statusline
 
@@ -110,7 +109,7 @@ map k gk
 " Line numbers and signs
 set number
 set numberwidth=3
-set signcolumn=number
+set signcolumn=yes
 set relativenumber " Show line numbers as relative to the current one
 set ruler " Show the cursor position in the bottom right corner
 highlight LineNr ctermbg=black ctermfg=darkgrey
