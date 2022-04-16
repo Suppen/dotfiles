@@ -25,6 +25,8 @@ Plug 'leafgarland/typescript-vim' " TypeScript syntax
 Plug 'maxmellon/vim-jsx-pretty'   " JS and JSX syntax
 Plug 'jparise/vim-graphql'        " GraphQL syntax
 
+Plug 'rust-lang/rust.vim'         " Rust support
+
 Plug 'airblade/vim-gitgutter'     " Git diff on lines edited
 Plug 'tpope/vim-fugitive'         " Git support
 
@@ -201,6 +203,9 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
+" Autoformat on save
+let g:rustfmt_autosave = 1
 
 " Leader key is SPACE
 let mapleader = " "
