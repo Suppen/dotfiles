@@ -212,14 +212,18 @@ let mapleader = " "
 
 " Symbol renaming.
 nnoremap <leader>rn <Plug>(coc-rename)
-" Remap keys for applying codeAction to the current buffer.
-nnoremap <leader>ac <Plug>(coc-codeaction)
+" Quick access to CocAction
+nnoremap <leader>ca :CocAction<CR>
+" Quick access to CocCommand
+nnoremap <leader>cc :CocCommand<CR>
 " Apply AutoFix to problem on the current line.
 nnoremap <leader>qf <Plug>(coc-fix-current)
 " Toggle NERDTree
 nnoremap <leader>nt :NERDTreeToggle<CR>
 " List open buffers
 nnoremap <leader>l :Buffers<CR>
+" List files
+nnoremap <leader>f :Files<CR>
 
 " Add `:Lint` command, fixing stuff eslint can fix in the current file
 command Lint CocCommand eslint.executeAutofix
