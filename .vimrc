@@ -17,7 +17,6 @@ Plug 'preservim/nerdtree'         " File browser
 " Konsole uses the font called Hack
 Plug 'ryanoasis/vim-devicons'     " Fancy icons
 
-Plug 'cohama/lexima.vim'          " Auto-close brackets and the like
 Plug 'tpope/vim-surround'         " Surrond stuff with other stuff
 
 Plug 'pangloss/vim-javascript'    " JavaScript support
@@ -48,6 +47,7 @@ filetype plugin indent on
 
 " CoC extensions
 let g:coc_global_extensions = [
+	\'coc-pairs',
 	\'coc-tsserver',
 	\'coc-json',
 	\'coc-css',
@@ -98,10 +98,6 @@ set scrolloff=5 " Show a few lines above/below the cursor when scrolling to top/
 set laststatus=2 " Always show the status line
 highlight StatusLine ctermfg=gray ctermbg=16
 highlight CocErrorSign ctermfg=11
-
-" NERDTree
-" Show hidden files
-let NERDTreeShowHidden=1
 
 " Wrap long lines and treat them as break lines
 set wrap
@@ -176,6 +172,9 @@ set noswapfile
 " Make it possible to hide buffers without saving them
 set hidden
 
+" Give more space for displaying messages
+set cmdheight=2
+
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
@@ -183,47 +182,63 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
+nnoremap <silent> K :call ShowDocumentation()<CR>
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
   else
-    call CocAction('doHover')
+    call feedKeys('K', 'in')
   endif
 endfunction
 
 " Use tab for trigger completion with characters ahead and navigate.
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
+      \ CheckBackspace() ? "\<TAB>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-function! s:check_back_space() abort
+function! CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+" Highlight the symbol and its references when holding the cursor
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
 " Autoformat on save
 let g:rustfmt_autosave = 1
 
+" Use CTRL-S for selections ranges.
+" Requires 'textDocument/selectionRange' support of language server.
+nmap <silent> <C-s> <Plug>(coc-range-select)
+xmap <silent> <C-s> <Plug>(coc-range-select)
+
 " Leader key is SPACE
-let mapleader = " "
+let mapleader = ' '
 
 " Symbol renaming.
-nnoremap <leader>rn <Plug>(coc-rename)
+nnoremap <silent> <leader>rn   <Plug>(coc-rename)
 " Quick access to CocAction
-nnoremap <leader>ca :CocAction<CR>
+nnoremap <silent> <leader>ac   <Plug>(coc-codeaction)
+" Apply codelens action to current line
+nnoremap <silent> <leader>cl   <Plug>(coc-codelens-action)
 " Quick access to CocCommand
-nnoremap <leader>cc :CocCommand<CR>
+nnoremap <silent> <leader>c    :<C-u>CocList commands<CR>
 " Apply AutoFix to problem on the current line.
-nnoremap <leader>qf <Plug>(coc-fix-current)
-" Toggle NERDTree
-nnoremap <leader>nt :NERDTreeToggle<CR>
+nnoremap <silent> <leader>qf   <Plug>(coc-fix-current)
+" Show outline of current file
+nnoremap <silent> <leader>o    :<C-u>CocList outline<CR>
 " List open buffers
-nnoremap <leader>l :Buffers<CR>
+nnoremap <silent> <leader>l    :<C-u>Buffers<CR>
 " List files
-nnoremap <leader>f :Files<CR>
+nnoremap <silent> <leader>f    :<C-u>Files<CR>
+
+" NERDTree
+" Show hidden files
+let NERDTreeShowHidden=1
+" Toggle NERDTree
+nnoremap <silent> <leader>nt   :NERDTreeToggle<CR>
 
 " Add `:Lint` command, fixing stuff eslint can fix in the current file
 command Lint CocCommand eslint.executeAutofix
