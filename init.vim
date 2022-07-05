@@ -20,6 +20,8 @@ Plug 'jparise/vim-graphql'        " GraphQL syntax
 
 Plug 'rust-lang/rust.vim'         " Rust support
 
+Plug 'neovimhaskell/haskell-vim'  " Haskell support
+
 Plug 'airblade/vim-gitgutter'     " Git diff on lines edited
 Plug 'tpope/vim-fugitive'         " Git support
 
@@ -31,11 +33,11 @@ Plug 'tpope/vim-repeat'           " Repeat plugin commands
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Loads of useful plugins
 
+Plug 'NLKNguyen/papercolor-theme' " Fancy color theme
+
 " Requires fzf to be installed on the system to work
 Plug 'junegunn/fzf'               " Set up fzf and fzf.vim
 Plug 'junegunn/fzf.vim'
-
-Plug 'NLKNguyen/papercolor-theme'
 
 " All of your Plugins must be added before the following line
 call plug#end()
