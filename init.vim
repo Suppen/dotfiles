@@ -35,6 +35,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'} " Loads of useful plugins
 Plug 'junegunn/fzf'               " Set up fzf and fzf.vim
 Plug 'junegunn/fzf.vim'
 
+Plug 'NLKNguyen/papercolor-theme'
+
 " All of your Plugins must be added before the following line
 call plug#end()
 
@@ -75,12 +77,11 @@ noremap <Left> <Nop>
 noremap <Right> <Nop>
 
 " Look and feel
+colorscheme PaperColor
 set lazyredraw " Do not redraw when executing macros
 set updatetime=300 " Update the cache on disk after this many milliseconds without activity
 set mouse=a " Enable mouse
 set scrolloff=5 " Show a few lines above/below the cursor when scrolling to top/bottom
-highlight StatusLine ctermfg=gray ctermbg=16
-highlight CocErrorSign ctermfg=11
 
 " Wrap long lines and treat them as break lines
 set wrap
@@ -92,16 +93,8 @@ set number
 set numberwidth=3
 set signcolumn=yes
 set relativenumber " Show line numbers as relative to the current one
-highlight LineNr ctermbg=black ctermfg=darkgrey
-highlight SignColumn ctermbg=black ctermfg=darkgrey
 set colorcolumn=120
 set textwidth=120
-highlight ColorColumn ctermbg=darkgray
-highlight CocFloating ctermbg=237
-
-" Diff
-highlight DiffDelete ctermbg=red
-highlight DiffAdd ctermbg=darkgreen
 
 " Folding
 set foldmethod=syntax
