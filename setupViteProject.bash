@@ -13,6 +13,7 @@ const fs = require(\"fs\");
 const package = require(\"./package.json\");
 
 package.scripts = {
+	...package.scripts,
 	\"test\": \"jest\",
 	\"test:dev\": \"jest --watchAll\",
 	\"lint\": \"eslint src/**\"
