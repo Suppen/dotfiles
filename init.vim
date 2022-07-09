@@ -48,7 +48,8 @@ let g:coc_global_extensions = [
 	\'coc-tsserver',
 	\'coc-json',
 	\'coc-css',
-	\'coc-html'
+	\'coc-html',
+	\'coc-rls'
 	\]
 
 " Add CoC Prettier if prettier is installed
