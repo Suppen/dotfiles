@@ -123,11 +123,6 @@ set smartindent
 set noerrorbells
 set visualbell
 
-" GitGutter
-highlight GitGutterAdd guifg=#009900 ctermfg=2
-highlight GitGutterChange guifg=#bbbb00 ctermfg=3
-highlight GitGutterDelete guifg=#bbbb00 ctermfg=3
-
 " Allow copy and paste from system clipboard
 set clipboard=unnamed
 
