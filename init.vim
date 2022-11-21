@@ -49,7 +49,7 @@ let g:coc_global_extensions = [
 	\'coc-json',
 	\'coc-css',
 	\'coc-html',
-	\'coc-rls'
+	\'coc-rust-analyzer'
 	\]
 
 " Add CoC Prettier if prettier is installed
