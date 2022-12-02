@@ -207,6 +207,8 @@ nnoremap <silent> <leader>o    :<C-u>CocList outline<CR>
 nnoremap <silent> <leader>l    :<C-u>Buffers<CR>
 " List files
 nnoremap <silent> <leader>f    :<C-u>Files<CR>
+" Comment stuff with leader + /
+noremap <leader>/ :Commentary<cr>
 
 " NERDTree
 " Show hidden files
