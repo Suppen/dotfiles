@@ -215,3 +215,6 @@ noremap <leader>/ :Commentary<cr>
 let NERDTreeShowHidden=1
 " Toggle NERDTree
 nnoremap <silent> <leader>nt   :NERDTreeToggle<CR>
+
+" Make fzf ignore some directories
+let $FZF_DEFAULT_COMMAND='find . \( -name node_modules -o -name .git \) -prune -o -print'
