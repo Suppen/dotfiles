@@ -8,6 +8,8 @@ call plug#begin()
 Plug 'williamboman/mason.nvim'    " Package manager
 Plug 'williamboman/mason-lspconfig.nvim'
 
+Plug 'lukas-reineke/indent-blankline.nvim'  " Indent lines
+
 Plug 'preservim/nerdtree'         " File browser
 
 " Download and install a NerdFont too: https://github.com/ryanoasis/nerd-fonts/releases/tag/v2.1.0
