@@ -1,3 +1,7 @@
+-- disable netrG
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- Requires vim-plug: https://github.com/junegunn/vim-plug. Put plug.vim in
 -- ~/.local/share/nvim/site/autoload/
 -- After installing vim-plug and this init.lua, run :PlugInstall in nvim
@@ -5,20 +9,16 @@ vim.cmd([[
 " Keep Plug commands between plug#begin() and plug#end().
 call plug#begin()
 
-Plug 'williamboman/mason.nvim'    " Package manager
-Plug 'williamboman/mason-lspconfig.nvim'
-
 Plug 'lukas-reineke/indent-blankline.nvim'  " Indent lines
-
-Plug 'preservim/nerdtree'         " File browser
 
 " Download and install a NerdFont too: https://github.com/ryanoasis/nerd-fonts/releases/tag/v2.1.0
 " Konsole uses the font called Hack
-Plug 'ryanoasis/vim-devicons'     " Fancy icons
+Plug 'nvim-tree/nvim-web-devicons'  " Fancy icons
+
+Plug 'nvim-tree/nvim-tree.lua'    " File browser
 
 Plug 'tpope/vim-surround'         " Surrond stuff with other stuff
 
-Plug 'pangloss/vim-javascript'    " JavaScript support
 Plug 'leafgarland/typescript-vim' " TypeScript syntax
 Plug 'maxmellon/vim-jsx-pretty'   " JS and JSX syntax
 Plug 'jparise/vim-graphql'        " GraphQL syntax
@@ -227,11 +227,22 @@ vim.api.nvim_set_keymap("n", "<leader>f", ":<C-u>Files<CR>", { silent = true, no
 -- Comment stuff with leader + /
 vim.api.nvim_set_keymap("n", "<leader>/", ":Commentary<cr>", { silent = true, noremap = true})
 
--- NERDTree
--- Show hidden files
-vim.cmd("let NERDTreeShowHidden=1")
--- Toggle NERDTree
-vim.api.nvim_set_keymap("n", "<leader>nt", ":NERDTreeToggle<CR>", { silent = true, noremap = true })
-
 -- Make fzf ignore some directories
 vim.cmd("let $FZF_DEFAULT_COMMAND='find . \\( -name node_modules -o -name .git \\) -prune -o -print'")
+
+--------------
+-- NvimTree --
+--------------
+
+require("nvim-tree").setup({
+  sort_by = "case_sensitive",
+  renderer = {
+    group_empty = true,
+  },
+  filters = {
+    dotfiles = false,
+  },
+})
+
+vim.api.nvim_set_keymap("n", "<leader>nt", ":NvimTreeToggle<CR>", {})
+vim.api.nvim_set_keymap("n", "<leader>nf", ":NvimTreeFindFile<CR>", {})
