@@ -17,10 +17,6 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " Syntax highlightin
 
 Plug 'tpope/vim-surround'         " Surrond stuff with other stuff
 
-Plug 'rust-lang/rust.vim'         " Rust support
-
-Plug 'neovimhaskell/haskell-vim'  " Haskell support
-
 Plug 'airblade/vim-gitgutter'     " Git diff on lines edited
 Plug 'tpope/vim-fugitive'         " Git support
 
@@ -37,7 +33,7 @@ Plug 'EdenEast/nightfox.nvim'     " Fancy color theme
 Plug 'nvim-lua/plenary.nvim'      " Dependency of telescope
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' } " Fuzzy search
 
-Plug 'phaazon/hop.nvim'
+Plug 'phaazon/hop.nvim'           " Hop directly to where you want to be
 
 " All of your Plugins must be added before the following line
 call plug#end()

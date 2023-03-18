@@ -49,7 +49,7 @@ vim.opt.textwidth = 120
 
 -- Folding
 vim.opt.foldmethod = "syntax"
-vim.opt.foldlevel=99
+vim.opt.foldlevel = 99
 -- Enable folding with z
 vim.api.nvim_set_keymap("n", "z", "za", {})
 
@@ -87,6 +87,3 @@ vim.opt.swapfile = false
 
 -- Give more space for displaying messages
 vim.opt.cmdheight = 2
-
--- Autoformat on save
-vim.g.rustfmt_autosave = 1
