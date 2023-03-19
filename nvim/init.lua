@@ -5,18 +5,18 @@ vim.g.loaded_netrwPlugin = 1
 -- Leader key is SPACE
 vim.api.nvim_set_var("mapleader", " ")
 
-require "user.plugins"
-require "user.nvim-autopairs"
-require "user.nvim-tree"
-require "user.nvim-treesitter"
-require "user.indent-blankline"
-require "user.telescope"
-require "user.lualine"
-require "user.hop"
-require "user.nvim-cmp"
-require "user.mason"
-require "user.mason-lspconfig"
-require "user.nvim-lspconfig"
+require "plugin-conf.plugins"
+require "plugin-conf.nvim-tree"
+require "plugin-conf.nvim-treesitter"
+require "plugin-conf.nvim-autopairs"
+require "plugin-conf.indent-blankline"
+require "plugin-conf.telescope"
+require "plugin-conf.lualine"
+require "plugin-conf.hop"
+require "plugin-conf.nvim-cmp"
+require "plugin-conf.mason"
+require "plugin-conf.mason-lspconfig"
+require "plugin-conf.nvim-lspconfig"
 
 -- Search all subdirectories of the root
 vim.opt.path:append("**")

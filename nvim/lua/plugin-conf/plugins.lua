@@ -14,6 +14,7 @@ Plug 'nvim-tree/nvim-web-devicons' " Fancy icons
 Plug 'nvim-tree/nvim-tree.lua'    " File browser
 
 Plug 'windwp/nvim-autopairs'      " Automatically pair certain characters
+Plug 'windwp/nvim-ts-autotag'     " Automatically pair html (and html-ish) tags
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " Syntax highlighting
 
