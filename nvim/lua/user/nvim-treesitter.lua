@@ -16,5 +16,8 @@ configs.setup {
 	},
 	tsx = {
 		enable = true
+	},
+	autopairs = {
+		enable = true
 	}
 }

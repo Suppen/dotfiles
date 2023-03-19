@@ -6,13 +6,17 @@ vim.g.loaded_netrwPlugin = 1
 vim.api.nvim_set_var("mapleader", " ")
 
 require "user.plugins"
-require "user.coc"
+require "user.nvim-autopairs"
 require "user.nvim-tree"
 require "user.nvim-treesitter"
 require "user.indent-blankline"
 require "user.telescope"
 require "user.lualine"
 require "user.hop"
+require "user.nvim-cmp"
+require "user.mason"
+require "user.mason-lspconfig"
+require "user.nvim-lspconfig"
 
 -- Search all subdirectories of the root
 vim.opt.path:append("**")
