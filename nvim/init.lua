@@ -17,12 +17,13 @@ require "plugin-conf.nvim-cmp"
 require "plugin-conf.mason"
 require "plugin-conf.mason-lspconfig"
 require "plugin-conf.nvim-lspconfig"
+require "plugin-conf.rust-tools"
 
 -- Search all subdirectories of the root
 vim.opt.path:append("**")
 -- Remember the position in the file when closing it
 if vim.fn.has("autocmd") then
-	vim.cmd [[au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]]
+	vim.cmd [[autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]]
 end
 
 -- Disable arrow keys, for hard mode

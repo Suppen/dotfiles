@@ -13,10 +13,10 @@ Plug 'nvim-tree/nvim-web-devicons' " Fancy icons
 
 Plug 'nvim-tree/nvim-tree.lua'    " File browser
 
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " Syntax highlighting
+
 Plug 'windwp/nvim-autopairs'      " Automatically pair certain characters
 Plug 'windwp/nvim-ts-autotag'     " Automatically pair html (and html-ish) tags
-
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " Syntax highlighting
 
 Plug 'tpope/vim-surround'         " Surrond stuff with other stuff
 
@@ -38,7 +38,6 @@ Plug 'phaazon/hop.nvim'           " Hop directly to where you want to be
 
 " Snippet engine
 Plug 'L3MON4D3/LuaSnip', {'tag': 'v<CurrentMajor>.*', 'do': 'make install_jsregexp'}
-Plug 'saadparwaiz1/cmp_luasnip'   " Snippet engine
 Plug 'rafamadriz/friendly-snippets' " Snippet collection
 
 Plug 'williamboman/mason.nvim'    " Package manager
@@ -46,7 +45,17 @@ Plug 'williamboman/mason-lspconfig.nvim' " Bridge between Mason and lspconfig
 Plug 'neovim/nvim-lspconfig'      " LSP configs
 
 Plug 'hrsh7th/nvim-cmp'           " Autocompletion
+
+" Autocompletion sources
 Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-nvim-lua'
+Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'saadparwaiz1/cmp_luasnip'
+
+Plug 'simrat39/rust-tools.nvim'    " Rust tools
+Plug 'nvim-treesitter/nvim-treesitter' " Treesitter config for rust
 
 " All of your Plugins must be added before the following line
 call plug#end()
