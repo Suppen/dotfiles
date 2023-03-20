@@ -44,7 +44,8 @@ Plug 'williamboman/mason.nvim'    " Package manager
 Plug 'williamboman/mason-lspconfig.nvim' " Bridge between Mason and lspconfig
 Plug 'neovim/nvim-lspconfig'      " LSP configs
 
-Plug 'hrsh7th/nvim-cmp'           " Autocompletion
+" Autocompletion engine
+Plug 'hrsh7th/nvim-cmp'
 
 " Autocompletion sources
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -55,7 +56,6 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'saadparwaiz1/cmp_luasnip'
 
 Plug 'simrat39/rust-tools.nvim'    " Rust tools
-Plug 'nvim-treesitter/nvim-treesitter' " Treesitter config for rust
 
 " All of your Plugins must be added before the following line
 call plug#end()

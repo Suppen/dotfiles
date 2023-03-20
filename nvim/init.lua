@@ -18,6 +18,7 @@ require "plugin-conf.mason"
 require "plugin-conf.mason-lspconfig"
 require "plugin-conf.nvim-lspconfig"
 require "plugin-conf.rust-tools"
+require "plugin-conf.vimspector"
 
 -- Search all subdirectories of the root
 vim.opt.path:append("**")
@@ -92,3 +93,7 @@ vim.opt.swapfile = false
 
 -- Give more space for displaying messages
 vim.opt.cmdheight = 2
+
+-- Treesitter folding
+vim.wo.foldmethod = 'expr'
+vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'

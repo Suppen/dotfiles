@@ -11,7 +11,7 @@ configs.setup {
 		enable = true,
 		additional_vim_regex_highlighting = false,
 	},
-	indent = {
+	ident = {
 		enable = true
 	},
 	tsx = {
@@ -22,5 +22,5 @@ configs.setup {
 	},
 	autotag = {
 		enable = true
-	}
+	},
 }
