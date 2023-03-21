@@ -59,6 +59,8 @@ Plug 'simrat39/rust-tools.nvim'    " Rust tools
 
 Plug 'puremourning/vimspector'     " Debugger
 
+Plug 'github/copilot.vim'          " AI coding assistant
+
 " All of your Plugins must be added before the following line
 call plug#end()
 ]])
