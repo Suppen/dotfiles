@@ -37,7 +37,7 @@ Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' } " Fuzzy search
 Plug 'phaazon/hop.nvim'           " Hop directly to where you want to be
 
 " Snippet engine
-Plug 'L3MON4D3/LuaSnip', {'tag': 'v<CurrentMajor>.*', 'do': 'make install_jsregexp'}
+Plug 'L3MON4D3/LuaSnip', {'tag': 'v1.*', 'do': 'make install_jsregexp'}
 Plug 'rafamadriz/friendly-snippets' " Snippet collection
 
 Plug 'williamboman/mason.nvim'    " Package manager

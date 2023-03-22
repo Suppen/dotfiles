@@ -1,10 +1,15 @@
-local status_ok, cmp = pcall(require, "cmp")
-if not status_ok then
+local cmp_status_ok, cmp = pcall(require, "cmp")
+if not cmp_status_ok then
 	print "Could not require cmp"
 	return
 end
 
-require("luasnip.loaders.from_vscode").lazy_load()
+local luasnip_status_ok, luasnip = pcall(require, "luasnip.loaders.from_vscode")
+if not luasnip_status_ok then
+	print "Could not require luasnip.loaders.from_vscode"
+else
+	luasnip.lazy_load()
+end
 
 cmp.setup {
 	mapping = cmp.mapping.preset.insert {
@@ -47,17 +52,17 @@ cmp.setup {
 }
 
 --cmp.setup.cmdline({ '/', '?' }, {
-	--mapping = cmp.mapping.preset.cmdline(),
-	--sources = {
-		--{ name = 'buffer' }
-	--}
+--mapping = cmp.mapping.preset.cmdline(),
+--sources = {
+--{ name = 'buffer' }
+--}
 --})
 
 --cmp.setup.cmdline(':', {
-	--mapping = cmp.mapping.preset.cmdline(),
-	--sources = cmp.config.sources({
-		--{ name = 'path' }
-	--}, {
-		--{ name = 'cmdline' }
-	--})
+--mapping = cmp.mapping.preset.cmdline(),
+--sources = cmp.config.sources({
+--{ name = 'path' }
+--}, {
+--{ name = 'cmdline' }
+--})
 --})
