@@ -5,7 +5,7 @@ npm create vite@latest .
 npm install
 npm install -D @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint eslint-config-prettier eslint-plugin-prettier prettier @types/jest jest ts-jest
 
-wget https://raw.githubusercontent.com/Suppen/dotfiles/master/.eslintrc.js
+wget https://raw.githubusercontent.com/Suppen/dotfiles/master/.eslintrc.cjs
 wget https://raw.githubusercontent.com/Suppen/dotfiles/master/.prettierrc.json
 
 node -e "
