@@ -5,6 +5,9 @@ vim.cmd([[
 " Keep Plug commands between plug#begin() and plug#end().
 call plug#begin()
 
+" Dependencies of some plugins
+Plug 'nvim-lua/plenary.nvim'
+
 " Download and install a NerdFont too: https://github.com/ryanoasis/nerd-fonts/releases/tag/v2.3.3
 " Konsole uses the font called Hack
 Plug 'lukas-reineke/indent-blankline.nvim'  " Visualise line indents
@@ -20,6 +23,8 @@ Plug 'windwp/nvim-ts-autotag'     " Automatically pair html (and html-ish) tags
 
 Plug 'tpope/vim-surround'         " Surrond stuff with other stuff
 
+Plug 'folke/trouble.nvim'         " Show errors in a floating window
+
 Plug 'airblade/vim-gitgutter'     " Git diff on lines edited
 Plug 'tpope/vim-fugitive'         " Git support
 
@@ -31,18 +36,19 @@ Plug 'tpope/vim-repeat'           " Repeat plugin commands
 
 Plug 'EdenEast/nightfox.nvim'     " Fancy color theme
 
-Plug 'nvim-lua/plenary.nvim'      " Dependency of telescope
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' } " Fuzzy search
 
 Plug 'phaazon/hop.nvim'           " Hop directly to where you want to be
 
-" Snippet engine
-Plug 'L3MON4D3/LuaSnip', {'tag': 'v1.*', 'do': 'make install_jsregexp'}
-Plug 'rafamadriz/friendly-snippets' " Snippet collection
-
+" Language server stuff
 Plug 'williamboman/mason.nvim'    " Package manager
 Plug 'williamboman/mason-lspconfig.nvim' " Bridge between Mason and lspconfig
 Plug 'neovim/nvim-lspconfig'      " LSP configs
+Plug 'jose-elias-alvarez/null-ls.nvim' " LSP configs for non-LSP languages
+
+" Snippet engine
+Plug 'L3MON4D3/LuaSnip', {'tag': 'v1.*', 'do': 'make install_jsregexp'}
+Plug 'rafamadriz/friendly-snippets' " Snippet collection
 
 " Autocompletion engine
 Plug 'hrsh7th/nvim-cmp'
