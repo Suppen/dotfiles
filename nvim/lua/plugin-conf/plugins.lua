@@ -61,6 +61,8 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'saadparwaiz1/cmp_luasnip'
 
+Plug 'jose-elias-alvarez/typescript.nvim' " Typescript support
+
 Plug 'simrat39/rust-tools.nvim'    " Rust tools
 
 Plug 'puremourning/vimspector'     " Debugger

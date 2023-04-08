@@ -14,5 +14,5 @@ nvim_tree.setup({
 	},
 })
 
-vim.api.nvim_set_keymap("n", "<leader>nt", ":NvimTreeToggle<CR>", {})
-vim.api.nvim_set_keymap("n", "<leader>nf", ":NvimTreeFindFile<CR>", {})
+vim.api.nvim_set_keymap("n", "<leader>nt", ":NvimTreeToggle<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<leader>nf", ":NvimTreeFindFile<CR>", { silent = true })

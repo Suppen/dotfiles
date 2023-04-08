@@ -4,6 +4,32 @@ if not status_ok then
 	return
 end
 
+--------------------------------
+-- Config of lspconfig itself --
+--------------------------------
+
+-- Configure the diagnostics handler to show in a floating window
+lspconfig.util.default_config = vim.tbl_extend('force', lspconfig.util.default_config, {
+  handlers = {
+    ['textDocument/publishDiagnostics'] = vim.lsp.with(
+      vim.lsp.diagnostic.on_publish_diagnostics, {
+        -- Use a floating window to display diagnostics
+        virtual_text = true,
+        signs = true,
+        underline = true,
+        update_in_insert = false,
+        severity_sort = true,
+        float = {
+          border = 'single' -- You can customize the border style, e.g., 'rounded', 'double', etc.
+        }
+      }
+    ),
+  },
+})
+
+vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { noremap = true, silent = true })
+
+
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 ---------
@@ -18,9 +44,8 @@ lspconfig.lua_ls.setup {
 -- JS/TS --
 -----------
 
-lspconfig.tsserver.setup {
-	capabilities = capabilities
-}
+-- Setting up the ts language server is handled by the typescript.lua file
+
 lspconfig.eslint.setup {
 	-- This setup somehow activates the command EslintFixAll
 	capabilities = capabilities,
