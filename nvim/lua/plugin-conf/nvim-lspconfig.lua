@@ -101,5 +101,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 				end,
 			}
 		end, opts)
+		vim.keymap.set('n', '<leader>o', vim.lsp.buf.document_symbol, opts)
 	end,
 })
