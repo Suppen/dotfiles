@@ -5,7 +5,7 @@ npm init
 npm install -D @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint eslint-config-prettier eslint-plugin-prettier nodemon prettier rimraf typescript @types/jest jest ts-jest
 
 wget https://raw.githubusercontent.com/Suppen/dotfiles/master/.prettierrc.json
-wget https://raw.githubusercontent.com/Suppen/dotfiles/master/.eslintrc.js
+wget https://raw.githubusercontent.com/Suppen/dotfiles/master/.eslintrc.cjs
 wget https://raw.githubusercontent.com/Suppen/dotfiles/master/.gitignore
 wget https://raw.githubusercontent.com/Suppen/dotfiles/master/tsconfig.json
 
