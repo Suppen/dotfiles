@@ -57,6 +57,10 @@ lspconfig.eslint.setup {
 	end,
 }
 
+lspconfig.angularls.setup {
+	capabilities = capabilities
+}
+
 ----------
 -- Rust --
 ----------
