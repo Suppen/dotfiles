@@ -8,7 +8,13 @@ local luasnip_status_ok, luasnip = pcall(require, "luasnip.loaders.from_vscode")
 if not luasnip_status_ok then
 	print "Could not require luasnip.loaders.from_vscode"
 else
-	luasnip.lazy_load()
+	luasnip.lazy_load({
+		paths = {
+			'~/.local/share/nvim/plugged/friendly-snippets',
+			'~/.local/share/nvim/plugged/vscode-angular-snippets',
+			'~/.local/share/nvim/plugged/vscode-es7-javascript-react-snippets',
+		}
+	})
 end
 
 cmp.setup {

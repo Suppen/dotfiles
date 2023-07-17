@@ -49,6 +49,8 @@ Plug 'jose-elias-alvarez/null-ls.nvim' " LSP configs for non-LSP languages
 " Snippet engine
 Plug 'L3MON4D3/LuaSnip', {'tag': 'v1.*', 'do': 'make install_jsregexp'}
 Plug 'rafamadriz/friendly-snippets' " Snippet collection
+Plug 'johnpapa/vscode-angular-snippets' " Angular snippets
+Plug 'dsznajder/vscode-es7-javascript-react-snippets' " React snippets
 
 " Autocompletion engine
 Plug 'hrsh7th/nvim-cmp'
