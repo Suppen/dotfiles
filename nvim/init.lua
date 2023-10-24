@@ -20,7 +20,6 @@ require "plugin-conf.nvim-lspconfig"
 require "plugin-conf.typescript"
 require "plugin-conf.rust-tools"
 require "plugin-conf.trouble"
-require "plugin-conf.vimspector"
 
 -- Search all subdirectories of the root
 vim.opt.path:append("**")
@@ -84,9 +83,6 @@ vim.opt.clipboard = "unnamed"
 
 -- Delete empty space from the end of lines on every save
 vim.cmd [[autocmd BufWritePre * :%s/\s\+$//e"]]
-
--- Set default encoding to utf-8
-vim.opt.termencoding = "utf-8"
 
 -- Turn off backup
 vim.opt.backup = false

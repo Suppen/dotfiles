@@ -1,7 +1,7 @@
-local status_ok, indent_blankline = pcall(require, "indent_blankline")
+local status_ok, ibl = pcall(require, "ibl")
 if not status_ok then
-	print "Could not require indent_blankline"
+	print "Could not require ibl"
 	return
 end
 
-indent_blankline.setup {}
+ibl.setup {}

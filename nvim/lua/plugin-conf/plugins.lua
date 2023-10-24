@@ -10,7 +10,7 @@ Plug 'nvim-lua/plenary.nvim'
 
 " Download and install a NerdFont too: https://github.com/ryanoasis/nerd-fonts/releases/tag/v2.3.3
 " Konsole uses the font called Hack
-Plug 'lukas-reineke/indent-blankline.nvim'  " Visualise line indents
+Plug 'lukas-reineke/indent-blankline.nvim', {'main': 'ibl'}  " Visualise line indents
 
 Plug 'nvim-tree/nvim-web-devicons' " Fancy icons
 
@@ -66,8 +66,6 @@ Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'jose-elias-alvarez/typescript.nvim' " Typescript support
 
 Plug 'simrat39/rust-tools.nvim'    " Rust tools
-
-Plug 'puremourning/vimspector'     " Debugger
 
 Plug 'github/copilot.vim'          " AI coding assistant
 
