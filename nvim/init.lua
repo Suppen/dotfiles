@@ -5,7 +5,7 @@ vim.g.loaded_netrwPlugin = 1
 -- Leader key is SPACE
 vim.api.nvim_set_var("mapleader", " ")
 
-require("plugin-conf.lazy")
+require("lazy.lazy")
 require("plugin-conf.nvim-tree")
 require("plugin-conf.nvim-treesitter")
 require("plugin-conf.nvim-autopairs")
