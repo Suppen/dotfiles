@@ -1,6 +1,6 @@
 local status_ok, lspconfig = pcall(require, "lspconfig")
 if not status_ok then
-	print "Could not require lspconfig"
+	print "Failed to load lspconfig"
 	return
 end
 

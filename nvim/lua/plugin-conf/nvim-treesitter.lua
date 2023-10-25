@@ -1,6 +1,6 @@
 local status_ok, configs = pcall(require, "nvim-treesitter.configs")
 if not status_ok then
-	print "Could not require nvim-treesitter.configs"
+	print "Failed to load nvim-treesitter.configs"
 	return
 end
 

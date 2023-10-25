@@ -1,12 +1,12 @@
 local cmp_status_ok, cmp = pcall(require, "cmp")
 if not cmp_status_ok then
-	print "Could not require cmp"
+	print "Failed to load cmp"
 	return
 end
 
 local luasnip_status_ok, luasnip = pcall(require, "luasnip.loaders.from_vscode")
 if not luasnip_status_ok then
-	print "Could not require luasnip.loaders.from_vscode"
+	print "Failed to load luasnip.loaders.from_vscode"
 else
 	luasnip.lazy_load({
 		paths = {

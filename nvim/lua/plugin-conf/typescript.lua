@@ -1,6 +1,6 @@
 local status_ok, typescript = pcall(require, "typescript")
 if not status_ok then
-	print "Could not require typescript"
+	print "Failed to load typescript"
 	return
 end
 

@@ -1,6 +1,6 @@
 local status_ok, rust_tools = pcall(require, "rust-tools")
 if not status_ok then
-	print "Could not require rust_tools"
+	print "Failed to load rust_tools"
 	return
 end
 

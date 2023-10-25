@@ -1,6 +1,6 @@
 local status_ok, masonlsp = pcall(require, "mason-lspconfig")
 if not status_ok then
-	print "Could not require mason-lspconfig"
+	print "Failed to load mason-lspconfig"
 	return
 end
 

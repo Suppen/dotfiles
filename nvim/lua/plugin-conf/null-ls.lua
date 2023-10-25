@@ -1,6 +1,6 @@
 local status_ok, null_ls = pcall(require, "null-ls")
 if not status_ok then
-	print "Could not require null_ls"
+	print "Failed to load null_ls"
 	return
 end
 

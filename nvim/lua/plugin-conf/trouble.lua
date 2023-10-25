@@ -1,6 +1,6 @@
 local status_ok, trouble = pcall(require, "trouble")
 if not status_ok then
-	print "Could not require trouble"
+	print "Failed to load trouble"
 	return
 end
 

@@ -1,6 +1,6 @@
 local status_ok, mason = pcall(require, "mason")
 if not status_ok then
-	print "Could not require mason"
+	print "Failed to load mason"
 	return
 end
 
