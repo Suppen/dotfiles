@@ -6,6 +6,8 @@ end
 
 telescope.setup { }
 
+telescope.load_extension('fzy_native')
+
 local builtin = require "telescope.builtin"
 
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})

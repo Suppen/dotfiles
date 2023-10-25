@@ -67,6 +67,14 @@ lspconfig.angularls.setup {
 
 -- Handled by rust-tools
 
+-------------
+-- Haskell --
+-------------
+
+lspconfig.hls.setup {
+	capabilities = capabilities
+}
+
 --------------
 -- Mappings --
 --------------

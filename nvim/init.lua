@@ -5,6 +5,20 @@ vim.g.loaded_netrwPlugin = 1
 -- Leader key is SPACE
 vim.api.nvim_set_var("mapleader", " ")
 
+-- Install and load lazy, a plugin manager
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
 require "plugin-conf.plugins"
 require "plugin-conf.nvim-tree"
 require "plugin-conf.nvim-treesitter"
@@ -12,7 +26,6 @@ require "plugin-conf.nvim-autopairs"
 require "plugin-conf.indent-blankline"
 require "plugin-conf.telescope"
 require "plugin-conf.lualine"
-require "plugin-conf.hop"
 require "plugin-conf.nvim-cmp"
 require "plugin-conf.mason"
 require "plugin-conf.mason-lspconfig"
@@ -35,7 +48,6 @@ vim.api.nvim_set_keymap("n", "<Left>", "", { noremap = true })
 vim.api.nvim_set_keymap("n", "<Right>", "", { noremap = true })
 
 -- Look and feel
-vim.cmd [[colorscheme nightfox]]
 vim.opt.lazyredraw = true -- Do not redraw when executing macros
 vim.opt.updatetime = 300 -- Update the cache on disk after this many milliseconds without activity
 vim.opt.mouse = "a" -- Enable mouse
