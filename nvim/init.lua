@@ -5,34 +5,20 @@ vim.g.loaded_netrwPlugin = 1
 -- Leader key is SPACE
 vim.api.nvim_set_var("mapleader", " ")
 
--- Install and load lazy, a plugin manager
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
-end
-vim.opt.rtp:prepend(lazypath)
-
-require "plugin-conf.plugins"
-require "plugin-conf.nvim-tree"
-require "plugin-conf.nvim-treesitter"
-require "plugin-conf.nvim-autopairs"
-require "plugin-conf.indent-blankline"
-require "plugin-conf.telescope"
-require "plugin-conf.lualine"
-require "plugin-conf.nvim-cmp"
-require "plugin-conf.mason"
-require "plugin-conf.mason-lspconfig"
-require "plugin-conf.nvim-lspconfig"
-require "plugin-conf.typescript"
-require "plugin-conf.rust-tools"
-require "plugin-conf.trouble"
+require("plugin-conf.lazy")
+require("plugin-conf.nvim-tree")
+require("plugin-conf.nvim-treesitter")
+require("plugin-conf.nvim-autopairs")
+require("plugin-conf.indent-blankline")
+require("plugin-conf.telescope")
+require("plugin-conf.lualine")
+require("plugin-conf.nvim-cmp")
+require("plugin-conf.mason")
+require("plugin-conf.mason-lspconfig")
+require("plugin-conf.nvim-lspconfig")
+require("plugin-conf.typescript")
+require("plugin-conf.rust-tools")
+require("plugin-conf.trouble")
 
 -- Search all subdirectories of the root
 vim.opt.path:append("**")
@@ -49,9 +35,9 @@ vim.api.nvim_set_keymap("n", "<Right>", "", { noremap = true })
 
 -- Look and feel
 vim.opt.lazyredraw = true -- Do not redraw when executing macros
-vim.opt.updatetime = 300 -- Update the cache on disk after this many milliseconds without activity
-vim.opt.mouse = "a" -- Enable mouse
-vim.opt.scrolloff = 5 -- Show a few lines above/below the cursor when scrolling to top/bottom
+vim.opt.updatetime = 300  -- Update the cache on disk after this many milliseconds without activity
+vim.opt.mouse = "a"       -- Enable mouse
+vim.opt.scrolloff = 5     -- Show a few lines above/below the cursor when scrolling to top/bottom
 
 -- Wrap long lines and treat them as break lines
 vim.opt.wrap = true
@@ -74,7 +60,7 @@ vim.api.nvim_set_keymap("n", "z", "za", {})
 
 -- Search options
 vim.opt.ignorecase = true -- Ignore case when searching
-vim.opt.smartcase = true -- Don't ignore case when search contains uppercase chars
+vim.opt.smartcase = true  -- Don't ignore case when search contains uppercase chars
 
 -- Tab Options
 vim.opt.shiftwidth = 4

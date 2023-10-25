@@ -1,9 +1,25 @@
+-- Install and load lazy, a plugin manager
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+-- Load lazy
 local status_ok, lazy = pcall(require, "lazy")
 if not status_ok then
 	print "Failed to load lazy.nvim"
 	return
 end
 
+-- Load plugins
 lazy.setup({
 	-- Fancy color theme
 	{
@@ -15,23 +31,43 @@ lazy.setup({
 		end
 	},
 
-	'lukas-reineke/indent-blankline.nvim',                   -- Visualise line indents
-	'nvim-tree/nvim-web-devicons',                           -- Fancy icons
-	'nvim-tree/nvim-tree.lua',                               -- File browser
+	{
+		-- Visualise line indents
+		'lukas-reineke/indent-blankline.nvim',
+		main = 'ibl'
+	},
+	'nvim-tree/nvim-web-devicons',      -- Fancy icons
+	'nvim-tree/nvim-tree.lua',          -- File browser
 	{
 		-- Syntax highlighting
 		'nvim-treesitter/nvim-treesitter',
 		build = ':TSUpdate'
 	},
-	'windwp/nvim-autopairs',                                 -- Automatically pair certain characters
-	'windwp/nvim-ts-autotag',                                -- Automatically pair html (and html-ish) tags
-	'tpope/vim-surround',                                    -- Surrond stuff with other stuff
-	'folke/trouble.nvim',                                    -- Show errors in a floating window
-	'airblade/vim-gitgutter',                                -- Git diff on lines edited
-	'tpope/vim-fugitive',                                    -- Git support
-	'nvim-lualine/lualine.nvim',                             -- Better statusline
-	'preservim/nerdcommenter',                               -- Comment/uncomment stuff
-	'tpope/vim-repeat',                                      -- Repeat plugin commands
+	{
+		-- Automatically pair certain characters
+		'windwp/nvim-autopairs',
+		event = 'InsertEnter'
+	},
+	'windwp/nvim-ts-autotag', -- Automatically pair html (and html-ish) tags
+	'tpope/vim-surround',  -- Surrond stuff with other stuff
+	{
+		-- Show errors in a floating window
+		'folke/trouble.nvim',
+		dependencies = {
+			'nvim-tree/nvim-web-devicons'
+		}
+	},
+	'airblade/vim-gitgutter', -- Git diff on lines edited
+	'tpope/vim-fugitive',  -- Git support
+	{
+		-- Better statusline
+		'nvim-lualine/lualine.nvim',
+		dependencies = {
+			'nvim-tree/nvim-web-devicons'
+		},
+	},
+	'preservim/nerdcommenter', -- Comment/uncomment stuff
+	'tpope/vim-repeat',     -- Repeat plugin commands
 
 	-- Fuzzy search
 	{
