@@ -1,27 +1,12 @@
--- disable netrw
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
 -- Leader key is SPACE
 vim.api.nvim_set_var("mapleader", " ")
 
+-- Load plugins
 require("lazy.lazy")
-require("plugin-conf.nvim-tree")
-require("plugin-conf.nvim-treesitter")
-require("plugin-conf.nvim-autopairs")
-require("plugin-conf.indent-blankline")
-require("plugin-conf.telescope")
-require("plugin-conf.lualine")
-require("plugin-conf.nvim-cmp")
-require("plugin-conf.mason")
-require("plugin-conf.mason-lspconfig")
-require("plugin-conf.nvim-lspconfig")
-require("plugin-conf.typescript")
-require("plugin-conf.rust-tools")
-require("plugin-conf.trouble")
 
 -- Search all subdirectories of the root
 vim.opt.path:append("**")
+
 -- Remember the position in the file when closing it
 if vim.fn.has("autocmd") then
 	vim.cmd [[autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]]
