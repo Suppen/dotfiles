@@ -4,27 +4,15 @@ return {
 	'hrsh7th/nvim-cmp',
 	event = "InsertEnter",
 	dependencies = {
+		'hrsh7th/cmp-buffer',                      -- Autocomplete from buffer
+		'hrsh7th/cmp-nvim-lsp-signature-help',     -- Show signature help
+		'hrsh7th/cmp-nvim-lsp',                    -- Autocomplete from LSP
+		'hrsh7th/cmp-nvim-lua',                    -- Autocomplete from Lua
+		'hrsh7th/cmp-path',                        -- Autocomplete from path
 		'L3MON4D3/LuaSnip',
-		'rafamadriz/friendly-snippets', -- Snippets
-		'hrsh7th/cmp-buffer',           -- Autocomplete from buffer
-		'hrsh7th/cmp-nvim-lsp-signature-help', -- Show signature help
-		'hrsh7th/cmp-nvim-lsp',         -- Autocomplete from LSP
-		'hrsh7th/cmp-nvim-lua',         -- Autocomplete from Lua
-		'hrsh7th/cmp-path',             -- Autocomplete from path
-		'saadparwaiz1/cmp_luasnip',     -- Autocomplete from snippets
+		'saadparwaiz1/cmp_luasnip',                -- Autocomplete from snippets
 	},
 	config = function()
-		local datapath = vim.fn.stdpath('data')
-
-		local luasnip = require('luasnip.loaders.from_vscode')
-		luasnip.lazy_load({
-			paths = {
-				datapath .. '/lazy/friendly-snippets',
-				datapath .. '/lazy/vscode-angular-snippets',
-				datapath .. '/lazy/vscode-es7-javascript-react-snippets',
-			}
-		})
-
 		local cmp = require('cmp')
 
 		cmp.setup {
