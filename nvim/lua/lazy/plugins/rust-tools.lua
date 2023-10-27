@@ -2,6 +2,7 @@
 
 return {
 	'simrat39/rust-tools.nvim',
+	ft = { 'rust' },
 	opts = {
 		inlay_hints = {
 			auto = true,
