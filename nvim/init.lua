@@ -1,9 +1,6 @@
 -- Leader key is SPACE
 vim.api.nvim_set_var("mapleader", " ")
 
--- Load plugins
-require("lazy.lazy")
-
 -- Search all subdirectories of the root
 vim.opt.path:append("**")
 
@@ -78,3 +75,6 @@ vim.opt.cmdheight = 2
 -- Treesitter folding
 vim.wo.foldmethod = 'expr'
 vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
+
+-- Load plugins
+require("lazy.lazy")
