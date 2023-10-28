@@ -10,6 +10,10 @@ return {
 		}
 	},
 	config = function()
+		local rt = require('rust-tools')
+
+		rt.setup()
+
 		-- Format on save. RustFmt does not work for some reason
 		vim.cmd [[autocmd BufWritePre *.rs lua vim.lsp.buf.format()]]
 	end

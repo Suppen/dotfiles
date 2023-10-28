@@ -39,6 +39,8 @@ return {
 				{ name = 'path' },
 				{ name = 'buffer' },
 				{ name = 'luasnip' }
+			}, {
+				{ name = 'buffer' }
 			}),
 			formatting = {
 				fields = { 'menu', 'abbr', 'kind' },
