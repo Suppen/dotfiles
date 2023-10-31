@@ -5,11 +5,11 @@ return {
 	tag = '0.1.4',
 	dependencies = {
 		'nvim-lua/plenary.nvim',
-		'nvim-telescope/telescope-fzy-native.nvim',
 	},
 	config = function()
 		local telescope = require('telescope')
-		telescope.load_extension('fzy_native')
+
+		telescope.setup()
 
 		local builtin = require "telescope.builtin"
 
