@@ -114,7 +114,6 @@ return {
 						end,
 					}
 				end, opts)
-				vim.keymap.set('n', '<leader>o', vim.lsp.buf.document_symbol, opts)
 			end,
 		})
 	end
