@@ -6,5 +6,6 @@ return {
 	'tpope/vim-fugitive',                          -- Git commands
 	'jose-elias-alvarez/typescript.nvim',          -- TypeScript support
 	'windwp/nvim-ts-autotag',                      -- Auto close HTML tags
-	'nvim-tree/nvim-web-devicons'                  -- Fancy icons
+	'nvim-tree/nvim-web-devicons',                 -- Fancy icons
+	'RRethy/vim-illuminate',					   -- Highlight all instances of the word under the cursor
 }
