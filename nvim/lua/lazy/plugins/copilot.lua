@@ -2,12 +2,17 @@
 
 return {
 	'zbirenbaum/copilot.lua',
+	enabled = false,
 	event = 'InsertEnter',
-	config = {
+	opts = {
+		panel = {
+			enabled = false
+		},
 		suggestion = {
+			debounce = 300,
 			auto_trigger = true,
 			keymap = {
-				accept = "<Tab>"
+				accept = "<M-CR>"
 			}
 		}
 	}
