@@ -69,6 +69,22 @@ return {
 		}
 
 		----------
+		-- HTML --
+		----------
+
+		lspconfig.html.setup {
+			capabilities = capabilities
+		}
+
+		---------
+		-- CSS --
+		---------
+
+		lspconfig.cssls.setup {
+			capabilities = capabilities
+		}
+
+		----------
 		-- Rust --
 		----------
 
