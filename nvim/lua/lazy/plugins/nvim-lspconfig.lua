@@ -2,6 +2,10 @@
 
 return {
 	'neovim/nvim-lspconfig',
+	dependencies = {
+		'williamboman/mason.nvim',
+		'williamboman/mason-lspconfig.nvim',
+	},
 	config = function()
 		local lspconfig = require('lspconfig')
 
@@ -45,7 +49,9 @@ return {
 		-- JS/TS --
 		-----------
 
-		-- Setting up the ts language server is handled by the typescript.lua file
+		lspconfig.tsserver.setup {
+			capabilities = capabilities,
+		}
 
 		lspconfig.eslint.setup {
 			-- This setup somehow activates the command EslintFixAll
@@ -66,7 +72,7 @@ return {
 		-- Rust --
 		----------
 
-		-- Handled by rust-tools
+		-- Handled by rustacean
 
 		-------------
 		-- Haskell --
