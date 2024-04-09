@@ -1,5 +1,5 @@
 -- Leader key is SPACE
-vim.api.nvim_set_var("mapleader", " ")
+vim.g.mapleader = " "
 
 -- Search all subdirectories of the root
 vim.opt.path:append("**")
