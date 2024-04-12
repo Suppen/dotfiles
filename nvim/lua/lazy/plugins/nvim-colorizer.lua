@@ -1,21 +1,21 @@
 -- Color highlighter
 
 local filetypes = {
-	'css',
-	'scss',
-	'sass',
-	'less',
-	'javascript',
-	'javascriptreact',
-	'typescript',
-	'typescriptreact',
-	'html',
-	'vue',
-	'json'
+	"css",
+	"scss",
+	"sass",
+	"less",
+	"javascript",
+	"javascriptreact",
+	"typescript",
+	"typescriptreact",
+	"html",
+	"vue",
+	"json",
 }
 
 return {
-	'NvChad/nvim-colorizer.lua',
+	"NvChad/nvim-colorizer.lua",
 	event = { "BufReadPre", "BufNewFile" },
 	ft = filetypes,
 	opts = {
@@ -29,10 +29,10 @@ return {
 			-- True is same as normal
 
 			-- parsers can contain values used in |user_default_options|
-			sass = { enable = false, parsers = { "css" }, }, -- Enable sass colors
+			sass = { enable = false, parsers = { "css" } }, -- Enable sass colors
 			virtualtext = "■",
 		},
 		-- all the sub-options of filetypes apply to buftypes
 		--buftypes = {},
-	}
+	},
 }

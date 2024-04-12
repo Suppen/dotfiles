@@ -5,7 +5,7 @@ vim.g.mapleader = " "
 vim.opt.path:append("**")
 
 -- Remember the position in the file when closing it
-vim.cmd [[autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]]
+vim.cmd([[autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]])
 
 -- Disable arrow keys, for hard mode
 vim.api.nvim_set_keymap("n", "<Up>", "", { noremap = true })
@@ -60,10 +60,10 @@ vim.opt.visualbell = true
 vim.opt.clipboard = "unnamed"
 
 -- Delete empty space from the end of lines on every save
-vim.api.nvim_create_autocmd('BufWritePre', {
+vim.api.nvim_create_autocmd("BufWritePre", {
 	callback = function()
-		vim.cmd [[%s/\s\+$//e]]
-	end
+		vim.cmd([[%s/\s\+$//e]])
+	end,
 })
 
 -- Turn off backup
@@ -75,8 +75,8 @@ vim.opt.swapfile = false
 vim.opt.cmdheight = 2
 
 -- Treesitter folding
-vim.wo.foldmethod = 'expr'
-vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.wo.foldmethod = "expr"
+vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
 
 -- Load plugins
 require("lazy.lazy")

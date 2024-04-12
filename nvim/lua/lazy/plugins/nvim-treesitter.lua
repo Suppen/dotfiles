@@ -1,8 +1,8 @@
 -- Syntax highlighting
 
 return {
-	'nvim-treesitter/nvim-treesitter',
-	build = ':TSUpdate',
+	"nvim-treesitter/nvim-treesitter",
+	build = ":TSUpdate",
 	opts = {
 		sync_install = false,
 		auto_install = true,
@@ -16,23 +16,23 @@ return {
 			"scss",
 			"lua",
 			"rust",
-			"toml"
+			"toml",
 		},
 		highlight = {
 			enable = true,
 			additional_vim_regex_highlighting = false,
 		},
 		ident = {
-			enable = true
+			enable = true,
 		},
 		tsx = {
-			enable = true
+			enable = true,
 		},
 		autopairs = {
-			enable = true
+			enable = true,
 		},
 		autotag = {
-			enable = true
-		}
-	}
+			enable = true,
+		},
+	},
 }
