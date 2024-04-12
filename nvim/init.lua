@@ -5,9 +5,7 @@ vim.g.mapleader = " "
 vim.opt.path:append("**")
 
 -- Remember the position in the file when closing it
-if vim.fn.has("autocmd") then
-	vim.cmd [[autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]]
-end
+vim.cmd [[autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]]
 
 -- Disable arrow keys, for hard mode
 vim.api.nvim_set_keymap("n", "<Up>", "", { noremap = true })
@@ -62,7 +60,11 @@ vim.opt.visualbell = true
 vim.opt.clipboard = "unnamed"
 
 -- Delete empty space from the end of lines on every save
-vim.cmd [[autocmd BufWritePre * :%s/\s\+$//e"]]
+vim.api.nvim_create_autocmd('BufWritePre', {
+	callback = function()
+		vim.cmd [[%s/\s\+$//e]]
+	end
+})
 
 -- Turn off backup
 vim.opt.backup = false
