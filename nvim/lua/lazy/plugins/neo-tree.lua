@@ -10,10 +10,6 @@ return {
 		"MunifTanjim/nui.nvim",
 	},
 	config = function()
-		-- Disable netrw
-		vim.g.loaded_netrw = 1
-		vim.g.loaded_netrwPlugin = 1
-
 		-- Set up neo-tree itself
 		require("neo-tree").setup({
 			disable_netrw = true,
@@ -27,12 +23,22 @@ return {
 				side = "left",
 				auto_resize = true,
 			},
+			sources = {
+				"filesystem",
+				"git_status",
+				"buffers",
+				"document_symbols", -- EXPERIMENTAL
+			},
+			filesystem = {
+				use_libuv_file_watcher = true,
+			},
 		})
 
 		-- Set up keymaps
 		vim.api.nvim_set_keymap("n", "<leader>nt", ":Neotree filesystem toggle<CR>", { silent = true })
 		vim.api.nvim_set_keymap("n", "<leader>ng", ":Neotree git_status toggle<CR>", { silent = true })
 		vim.api.nvim_set_keymap("n", "<leader>nb", ":Neotree buffers toggle<CR>", { silent = true })
+		vim.api.nvim_set_keymap("n", "<leader>no", ":Neotree document_symbols toggle<CR>", { silent = true })
 		vim.api.nvim_set_keymap("n", "<leader>nf", ":Neotree reveal<CR>", { silent = true })
 	end,
 }
