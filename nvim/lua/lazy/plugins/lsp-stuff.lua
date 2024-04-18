@@ -33,7 +33,15 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end, opts)
 		vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 		vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-		vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, opts)
+		vim.keymap.set("n", "<leader>gf", function()
+			vim.lsp.buf.format({
+				async = true,
+				filter = function(client)
+					-- JS/TS formatting is handled by ESLint
+					return client.name ~= "tsserver"
+				end,
+			})
+		end, opts)
 
 		-- Format on save
 		if vim.b[ev.buf] == nil or vim.b[ev.buf].format_on_save_set == nil then
@@ -87,11 +95,11 @@ return {
 
 			null_ls.setup({
 				sources = {
-					require("none-ls.diagnostics.eslint_d"),
-					require("none-ls.code_actions.eslint_d"),
-					require("none-ls.formatting.eslint_d"),
+					--require("none-ls.diagnostics.eslint_d"),
+					--require("none-ls.code_actions.eslint_d"),
+					--require("none-ls.formatting.eslint_d"),
 					null_ls.builtins.formatting.stylua,
-					null_ls.builtins.formatting.prettierd,
+					--null_ls.builtins.formatting.prettierd,
 				},
 			})
 		end,
@@ -146,6 +154,17 @@ return {
 
 			lspconfig.tsserver.setup({
 				capabilities = capabilities,
+			})
+
+			lspconfig.eslint.setup({
+				-- This setup somehow activates the command EslintFixAll
+				capabilities = capabilities,
+				on_attach = function(_, bufnr)
+					vim.api.nvim_create_autocmd("BufWritePre", {
+						buffer = bufnr,
+						command = "EslintFixAll",
+					})
+				end,
 			})
 
 			lspconfig.angularls.setup({

@@ -3,11 +3,13 @@
 return {
 	"nvim-neo-tree/neo-tree.nvim",
 	lazy = true,
+	enabled = false,
 	keys = { "<leader>n" },
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"nvim-tree/nvim-web-devicons",
 		"MunifTanjim/nui.nvim",
+		"s1n7ax/nvim-window-picker",
 	},
 	config = function()
 		-- Set up neo-tree itself
