@@ -1,5 +1,4 @@
 return {
-	"github/copilot.vim", -- AI code completion
 	"tpope/vim-repeat", -- Repeat plugin commands
 	"tpope/vim-fugitive", -- Git commands
 	"nvim-tree/nvim-web-devicons", -- Fancy icons
