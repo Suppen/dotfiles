@@ -19,7 +19,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		-- Buffer local mappings.
 		-- See `:help vim.lsp.*` for documentation on any of the below functions
 		local opts = { noremap = true, silent = true, buffer = ev.buf }
-		--vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 		vim.keymap.set("n", "gy", vim.lsp.buf.type_definition, opts)
 		vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
@@ -47,7 +47,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		if vim.b[ev.buf] == nil or vim.b[ev.buf].format_on_save_set == nil then
 			-- Guard against setting the autocmd multiple times
 			vim.b[ev.buf] = vim.b[ev.buf] or {}
-			vim.b[ev.buf].format_on_save_set = true -- Set the flag to true
+			vim.b[ev.buf].format_on_save_set = true
 
 			vim.api.nvim_create_autocmd("BufWritePre", {
 				buffer = ev.buf,
@@ -95,11 +95,14 @@ return {
 
 			null_ls.setup({
 				sources = {
+					-- Disabled due to being ridiculously slow. Using the eslint language server instead, and
+					-- configuring it to also use prettier
 					--require("none-ls.diagnostics.eslint_d"),
 					--require("none-ls.code_actions.eslint_d"),
 					--require("none-ls.formatting.eslint_d"),
-					null_ls.builtins.formatting.stylua,
 					--null_ls.builtins.formatting.prettierd,
+
+					null_ls.builtins.formatting.stylua,
 				},
 			})
 		end,
