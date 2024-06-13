@@ -37,10 +37,35 @@ return {
 		})
 
 		-- Set up keymaps
-		vim.api.nvim_set_keymap("n", "<leader>nt", ":Neotree filesystem toggle<CR>", { silent = true })
-		vim.api.nvim_set_keymap("n", "<leader>ng", ":Neotree git_status toggle<CR>", { silent = true })
-		vim.api.nvim_set_keymap("n", "<leader>nb", ":Neotree buffers toggle<CR>", { silent = true })
-		vim.api.nvim_set_keymap("n", "<leader>no", ":Neotree document_symbols toggle<CR>", { silent = true })
-		vim.api.nvim_set_keymap("n", "<leader>nf", ":Neotree reveal<CR>", { silent = true })
+		vim.api.nvim_set_keymap(
+			"n",
+			"<leader>nt",
+			":Neotree filesystem toggle<CR>",
+			{ silent = true, desc = "Toggle Neotree filesystem" }
+		)
+		vim.api.nvim_set_keymap(
+			"n",
+			"<leader>ng",
+			":Neotree git_status toggle<CR>",
+			{ silent = true, desc = "Toggle Neotree git status" }
+		)
+		vim.api.nvim_set_keymap(
+			"n",
+			"<leader>nb",
+			":Neotree buffers toggle<CR>",
+			{ silent = true, desc = "Toggle Neotree buffers" }
+		)
+		vim.api.nvim_set_keymap(
+			"n",
+			"<leader>no",
+			":Neotree document_symbols toggle<CR>",
+			{ silent = true, desc = "Toggle Neotree symbol outline" }
+		)
+		vim.api.nvim_set_keymap(
+			"n",
+			"<leader>nf",
+			":Neotree reveal<CR>",
+			{ silent = true, desc = "Reveal file in Neotree" }
+		)
 	end,
 }

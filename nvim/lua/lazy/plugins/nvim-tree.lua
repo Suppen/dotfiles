@@ -1,9 +1,9 @@
 -- File explorer
 
 return {
-	'nvim-tree/nvim-tree.lua',
+	"nvim-tree/nvim-tree.lua",
 	dependencies = {
-		'nvim-tree/nvim-web-devicons'
+		"nvim-tree/nvim-web-devicons",
 	},
 	config = function()
 		-- Disable netrw
@@ -11,7 +11,7 @@ return {
 		vim.g.loaded_netrwPlugin = 1
 
 		-- Setup nvim-tree
-		local nvim_tree = require('nvim-tree')
+		local nvim_tree = require("nvim-tree")
 		nvim_tree.setup({
 			sort_by = "case_sensitive",
 			renderer = {
@@ -22,7 +22,12 @@ return {
 			},
 		})
 
-		vim.api.nvim_set_keymap("n", "<leader>nt", ":NvimTreeToggle<CR>", { silent = true })
-		vim.api.nvim_set_keymap("n", "<leader>nf", ":NvimTreeFindFile<CR>", { silent = true })
-	end
+		vim.api.nvim_set_keymap("n", "<leader>nt", ":NvimTreeToggle<CR>", { silent = true, desc = "Toggle NvimTree" })
+		vim.api.nvim_set_keymap(
+			"n",
+			"<leader>nf",
+			":NvimTreeFindFile<CR>",
+			{ silent = true, desc = "Find file in NvimTree" }
+		)
+	end,
 }
