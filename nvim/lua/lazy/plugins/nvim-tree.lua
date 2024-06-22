@@ -22,12 +22,7 @@ return {
 			},
 		})
 
-		vim.api.nvim_set_keymap("n", "<leader>nt", ":NvimTreeToggle<CR>", { silent = true, desc = "Toggle NvimTree" })
-		vim.api.nvim_set_keymap(
-			"n",
-			"<leader>nf",
-			":NvimTreeFindFile<CR>",
-			{ silent = true, desc = "Find file in NvimTree" }
-		)
+		vim.keymap.set("n", "<leader>nt", ":NvimTreeToggle<CR>", { silent = true, desc = "Toggle NvimTree" })
+		vim.keymap.set("n", "<leader>nf", ":NvimTreeFindFile<CR>", { silent = true, desc = "Find file in NvimTree" })
 	end,
 }
