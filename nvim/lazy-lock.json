@@ -1,5 +1,6 @@
 {
   "Comment.nvim": { "branch": "master", "commit": "e30b7f2008e52442154b66f7c519bfd2f1e32acb" },
+  "CopilotChat.nvim": { "branch": "canary", "commit": "82923efe22b604cf9c0cad0bb2a74aa9247755ab" },
   "LuaSnip": { "branch": "master", "commit": "03c8e67eb7293c404845b3982db895d59c0d1538" },
   "barbecue.nvim": { "branch": "main", "commit": "d38a2a023dfb1073dd0e8fee0c9be08855d3688f" },
   "cmp-buffer": { "branch": "main", "commit": "3022dbc9166796b644a841a02de8dd1cc1d311fa" },
