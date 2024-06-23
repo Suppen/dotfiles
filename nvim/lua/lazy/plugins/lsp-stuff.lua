@@ -31,7 +31,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 		end, opts)
 		vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts, { desc = "Rename symbol" })
-		vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts, { desc = "Code [A]ction" })
+		vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts, { desc = "[C]ode [A]ction" })
 		vim.keymap.set("n", "<leader>gf", function()
 			vim.lsp.buf.format({
 				async = true,
