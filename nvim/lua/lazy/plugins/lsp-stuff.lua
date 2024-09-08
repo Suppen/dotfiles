@@ -37,7 +37,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 				async = true,
 				filter = function(client)
 					-- JS/TS formatting is handled by ESLint
-					return client.name ~= "tsserver"
+					return client.name ~= "ts_ls"
 				end,
 			})
 		end, opts)
@@ -79,7 +79,7 @@ return {
 			"williamboman/mason.nvim",
 		},
 		opts = {
-			ensure_installed = { "lua_ls", "tsserver", "eslint", "angularls", "rust_analyzer" },
+			ensure_installed = { "lua_ls", "ts_ls", "eslint", "angularls", "rust_analyzer" },
 			automatic_installation = true,
 		},
 	},
@@ -154,7 +154,7 @@ return {
 			-- JS/TS --
 			-----------
 
-			lspconfig.tsserver.setup({
+			lspconfig.ts_ls.setup({
 				capabilities = capabilities,
 			})
 
