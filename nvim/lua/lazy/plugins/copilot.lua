@@ -1,8 +1,11 @@
 -- AI code completion
 
+local enabled = false
+
 return {
 	{
 		"zbirenbaum/copilot.lua",
+		enabled = enabled,
 		cmd = "Copilot",
 		opts = {
 			suggestion = { enabled = false },
@@ -12,6 +15,7 @@ return {
 	},
 	{
 		"zbirenbaum/copilot-cmp",
+		enabled = enabled,
 		dependencies = {
 			"zbirenbaum/copilot.lua",
 		},
@@ -20,6 +24,7 @@ return {
 	},
 	{
 		"CopilotC-Nvim/CopilotChat.nvim",
+		enabled = enabled,
 		branch = "canary",
 		dependencies = {
 			{ "zbirenbaum/copilot.lua" },
