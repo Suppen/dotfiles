@@ -1,5 +1,6 @@
 -- AI code completion
 
+-- See also the nvim-cmp config
 local enabled = false
 
 return {
