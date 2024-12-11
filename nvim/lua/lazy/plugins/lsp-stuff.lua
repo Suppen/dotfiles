@@ -206,6 +206,14 @@ return {
 			lspconfig.hls.setup({
 				capabilities = capabilities,
 			})
+
+			--------
+			-- Go --
+			--------
+
+			lspconfig.gopls.setup({
+				capabilities = capabilities,
+			})
 		end,
 	},
 }
