@@ -79,7 +79,7 @@ return {
 			"williamboman/mason.nvim",
 		},
 		opts = {
-			ensure_installed = { "lua_ls", "ts_ls", "eslint", "angularls", "rust_analyzer", "tailwindcss" },
+			ensure_installed = { "lua_ls", "ts_ls", "eslint", "rust_analyzer", "tailwindcss" },
 			automatic_installation = true,
 		},
 	},
@@ -167,10 +167,6 @@ return {
 						command = "EslintFixAll",
 					})
 				end,
-			})
-
-			lspconfig.angularls.setup({
-				capabilities = capabilities,
 			})
 
 			----------

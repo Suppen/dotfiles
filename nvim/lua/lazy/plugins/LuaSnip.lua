@@ -8,7 +8,6 @@ return {
 	dependencies = {
 		"saadparwaiz1/cmp_luasnip", -- Autocomplete from snippets
 		"rafamadriz/friendly-snippets", -- Snippets
-		"johnpapa/vscode-angular-snippets", -- Angular snippets
 		"dsznajder/vscode-es7-javascript-react-snippets", -- React snippets
 	},
 	config = function()
@@ -18,7 +17,6 @@ return {
 		luasnip.lazy_load({
 			paths = {
 				datapath .. "/lazy/friendly-snippets",
-				datapath .. "/lazy/vscode-angular-snippets",
 				datapath .. "/lazy/vscode-es7-javascript-react-snippets",
 			},
 		})
