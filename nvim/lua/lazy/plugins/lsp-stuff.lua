@@ -72,17 +72,6 @@ return {
 			},
 		},
 	},
-	-- Mason LSP config
-	{
-		"williamboman/mason-lspconfig.nvim",
-		dependencies = {
-			"williamboman/mason.nvim",
-		},
-		opts = {
-			ensure_installed = { "lua_ls", "ts_ls", "eslint", "rust_analyzer", "tailwindcss" },
-			automatic_installation = true,
-		},
-	},
 	-- None-ls
 	{
 		"nvimtools/none-ls.nvim",
@@ -111,7 +100,6 @@ return {
 		"neovim/nvim-lspconfig",
 		dependencies = {
 			"williamboman/mason.nvim",
-			"williamboman/mason-lspconfig.nvim",
 			"hrsh7th/cmp-nvim-lsp",
 		},
 		config = function()
