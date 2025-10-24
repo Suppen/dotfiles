@@ -103,29 +103,6 @@ return {
 			"hrsh7th/cmp-nvim-lsp",
 		},
 		config = function()
-			local lspconfig = require("lspconfig")
-
-			--------------------------------
-			-- Config of lspconfig itself --
-			--------------------------------
-
-			-- Configure the diagnostics handler to show in a floating window
-			lspconfig.util.default_config = vim.tbl_extend("force", lspconfig.util.default_config, {
-				handlers = {
-					["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-						-- Use a floating window to display diagnostics
-						virtual_text = true,
-						signs = true,
-						underline = true,
-						update_in_insert = false,
-						severity_sort = true,
-						float = {
-							border = "single", -- You can customize the border style, e.g., 'rounded', 'double', etc.
-						},
-					}),
-				},
-			})
-
 			vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { noremap = true, silent = true })
 
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -134,7 +111,8 @@ return {
 			-- Lua --
 			---------
 
-			lspconfig.lua_ls.setup({
+			vim.lsp.enable("lua_ls")
+			vim.lsp.config("lua_ls", {
 				capabilities = capabilities,
 			})
 
@@ -142,26 +120,22 @@ return {
 			-- JS/TS --
 			-----------
 
-			lspconfig.ts_ls.setup({
+			vim.lsp.enable("ts_ls")
+			vim.lsp.config("ts_ls", {
 				capabilities = capabilities,
 			})
 
-			lspconfig.eslint.setup({
-				-- This setup somehow activates the command EslintFixAll
+			vim.lsp.enable("eslint")
+			vim.lsp.config("eslint", {
 				capabilities = capabilities,
-				on_attach = function(_, bufnr)
-					vim.api.nvim_create_autocmd("BufWritePre", {
-						buffer = bufnr,
-						command = "EslintFixAll",
-					})
-				end,
 			})
 
 			----------
 			-- HTML --
 			----------
 
-			lspconfig.html.setup({
+			vim.lsp.enable("html")
+			vim.lsp.config("html", {
 				capabilities = capabilities,
 			})
 
@@ -169,11 +143,13 @@ return {
 			-- CSS --
 			---------
 
-			lspconfig.cssls.setup({
+			vim.lsp.enable("cssls")
+			vim.lsp.config("cssls", {
 				capabilities = capabilities,
 			})
 
-			lspconfig.tailwindcss.setup({
+			vim.lsp.enable("tailwindcss")
+			vim.lsp.config("tailwindcss", {
 				capabilities = capabilities,
 			})
 
@@ -187,7 +163,8 @@ return {
 			-- Haskell --
 			-------------
 
-			lspconfig.hls.setup({
+			vim.lsp.enable("hls")
+			vim.lsp.config("hls", {
 				capabilities = capabilities,
 			})
 		end,
