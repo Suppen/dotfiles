@@ -24,12 +24,18 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts, { desc = "Go to [I]mplementation" })
 		--vim.keymap.set("n", "gr", vim.lsp.buf.references, opts) --Handled by telescope
 		vim.keymap.set("n", "K", vim.lsp.buf.hover, opts, { desc = "Show Hover" })
-		vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
-		vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts)
-		vim.keymap.set("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, opts)
+		vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts, { desc = "Signature Help" })
+		vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts, { desc = "Add Workspace Folder" })
+		vim.keymap.set(
+			"n",
+			"<leader>wr",
+			vim.lsp.buf.remove_workspace_folder,
+			opts,
+			{ desc = "Remove Workspace Folder" }
+		)
 		vim.keymap.set("n", "<leader>wl", function()
 			print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-		end, opts)
+		end, opts, { desc = "List Workspace Folders" })
 		vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts, { desc = "Rename symbol" })
 		vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts, { desc = "[C]ode [A]ction" })
 		vim.keymap.set("n", "<leader>gf", function()
