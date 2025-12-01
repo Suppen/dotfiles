@@ -113,66 +113,20 @@ return {
 
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-			---------
-			-- Lua --
-			---------
-
-			vim.lsp.enable("lua_ls")
-			vim.lsp.config("lua_ls", {
-				capabilities = capabilities,
-			})
-
-			-----------
-			-- JS/TS --
-			-----------
-
-			vim.lsp.enable("ts_ls")
-			vim.lsp.config("ts_ls", {
-				capabilities = capabilities,
-			})
-
-			vim.lsp.enable("eslint")
-			vim.lsp.config("eslint", {
-				capabilities = capabilities,
-			})
-
-			----------
-			-- HTML --
-			----------
-
-			vim.lsp.enable("html")
-			vim.lsp.config("html", {
-				capabilities = capabilities,
-			})
-
-			---------
-			-- CSS --
-			---------
-
-			vim.lsp.enable("cssls")
-			vim.lsp.config("cssls", {
-				capabilities = capabilities,
-			})
-
-			vim.lsp.enable("tailwindcss")
-			vim.lsp.config("tailwindcss", {
-				capabilities = capabilities,
-			})
-
-			----------
-			-- Rust --
-			----------
-
-			-- Handled by rustaceanvim
-
-			-------------
-			-- Haskell --
-			-------------
-
-			vim.lsp.enable("hls")
-			vim.lsp.config("hls", {
-				capabilities = capabilities,
-			})
+			local servers = {
+				"lua_ls",
+				"ts_ls",
+				"eslint",
+				"html",
+				"cssls",
+				"tailwindcss",
+				"hls",
+				-- Rust is handled by rustaceanvim
+			}
+			for _, server in ipairs(servers) do
+				vim.lsp.enable(server)
+				vim.lsp.config(server, { capabilities = capabilities })
+			end
 		end,
 	},
 }
