@@ -1,6 +1,6 @@
-# Dockerfile for Neovim with Claude Code CLI support
-# This container provides the Claude Code CLI environment while using
-# your host's Neovim configuration and cache via mounted volumes.
+# Dockerfile for Claude Code CLI in a sandboxed environment
+# This container provides the Claude Code CLI in an isolated environment
+# with your project directory and Claude configuration mounted.
 
 FROM ubuntu:24.04
 
@@ -43,37 +43,21 @@ RUN mkdir -p /etc/apt/keyrings && \
 RUN npm install -g @anthropic-ai/claude-code
 
 # Create a non-root user
-RUN useradd -m -s /bin/bash nvimuser
+RUN useradd -m -s /bin/bash claudeuser
 
 # Create mount point directories with permissive permissions
 # These will be overlaid by volume mounts at runtime
 # The 777 permissions allow any UID (via --user) to write here
-RUN mkdir -p /home/nvimuser/.config/nvim \
-             /home/nvimuser/.local/share/nvim \
-             /home/nvimuser/.local/state/nvim \
-             /home/nvimuser/.cache/nvim \
-             /workspace \
-             /host-nvim && \
-    chmod -R 777 /home/nvimuser /workspace
+RUN mkdir -p /home/claudeuser/.claude \
+             /workspace && \
+    chmod -R 777 /home/claudeuser /workspace
 
 # Ensure bash is used as the default shell
 ENV SHELL=/bin/bash
 
-# Set up PATH to include host neovim (must be mounted)
-# Also ensure npm global binaries are in PATH
-ENV PATH="/host-nvim/bin:${PATH}"
-ENV npm_config_prefix=/home/nvimuser/.npm-global
-ENV PATH="/home/nvimuser/.npm-global/bin:${PATH}"
-
 # Switch to non-root user
-USER nvimuser
+USER claudeuser
 WORKDIR /workspace
 
-# Set XDG directories to use mounted volumes
-ENV XDG_CONFIG_HOME=/home/nvimuser/.config
-ENV XDG_DATA_HOME=/home/nvimuser/.local/share
-ENV XDG_STATE_HOME=/home/nvimuser/.local/state
-ENV XDG_CACHE_HOME=/home/nvimuser/.cache
-
 # Default command
-CMD ["nvim"]
+CMD ["bash"]
