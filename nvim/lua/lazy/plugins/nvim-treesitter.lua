@@ -19,21 +19,15 @@ return {
 				"lua",
 				"rust",
 				"toml",
+				"dockerfile",
+				"gitignore",
+				"markdown",
 			},
 			highlight = {
 				enable = true,
 				additional_vim_regex_highlighting = false,
 			},
-			ident = {
-				enable = true,
-			},
-			tsx = {
-				enable = true,
-			},
-			autopairs = {
-				enable = true,
-			},
-			autotag = {
+			indent = {
 				enable = true,
 			},
 		},

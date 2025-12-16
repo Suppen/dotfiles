@@ -2,12 +2,13 @@
 
 return {
 	"L3MON4D3/LuaSnip",
+	enabled = false,
 	version = "v2.*",
 	build = "make install_jsregexp",
 	lazy = true,
 	dependencies = {
-		"saadparwaiz1/cmp_luasnip", -- Autocomplete from snippets
-		"rafamadriz/friendly-snippets", -- Snippets
+		"saadparwaiz1/cmp_luasnip",                 -- Autocomplete from snippets
+		"rafamadriz/friendly-snippets",             -- Snippets
 		"dsznajder/vscode-es7-javascript-react-snippets", -- React snippets
 	},
 	config = function()

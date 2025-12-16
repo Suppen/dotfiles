@@ -4,13 +4,12 @@ return {
 	"hrsh7th/nvim-cmp",
 	event = "InsertEnter",
 	dependencies = {
-		"hrsh7th/cmp-buffer", -- Autocomplete from buffer
+		"hrsh7th/cmp-buffer",            -- Autocomplete from buffer
 		"hrsh7th/cmp-nvim-lsp-signature-help", -- Show signature help
-		"hrsh7th/cmp-nvim-lsp", -- Autocomplete from LSP
-		"hrsh7th/cmp-nvim-lua", -- Autocomplete from Lua
-		"hrsh7th/cmp-path", -- Autocomplete from path
-		-- "zbirenbaum/copilot-cmp", -- Copilot support
-		"L3MON4D3/LuaSnip",
+		"hrsh7th/cmp-nvim-lsp",          -- Autocomplete from LSP
+		"hrsh7th/cmp-nvim-lua",          -- Autocomplete from Lua
+		"hrsh7th/cmp-path",              -- Autocomplete from path
+		-- "L3MON4D3/LuaSnip",
 	},
 	config = function()
 		local cmp = require("cmp")
@@ -23,24 +22,23 @@ return {
 				["<C-e>"] = cmp.mapping.abort(),
 				["<CR>"] = cmp.mapping.confirm({ select = false }),
 			}),
-			snippet = {
-				expand = function(args)
-					require("luasnip").lsp_expand(args.body)
-				end,
-			},
+			-- snippet = {
+			-- 	expand = function(args)
+			-- 		require("luasnip").lsp_expand(args.body)
+			-- 	end,
+			-- },
 			window = {
 				completion = cmp.config.window.bordered(),
 				documentation = cmp.config.window.bordered(),
 			},
 			sources = cmp.config.sources({
-				-- { name = "copilot" },
 				{ name = "supermaven" },
 				{ name = "nvim_lsp" },
 				{ name = "nvim_lua" },
 				{ name = "nvim_lsp_signature_help" },
 				{ name = "path" },
 				{ name = "buffer" },
-				{ name = "luasnip" },
+				-- { name = "luasnip" },
 			}, {
 				{ name = "buffer" },
 			}),
@@ -49,7 +47,7 @@ return {
 				format = function(entry, item)
 					local menu_icon = {
 						nvim_lsp = "λ",
-						luasnip = "⋗",
+						-- luasnip = "⋗",
 						buffer = "Ω",
 						path = "🖫",
 					}
