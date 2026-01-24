@@ -39,9 +39,6 @@ RUN mkdir -p /etc/apt/keyrings && \
     apt-get install -y nodejs && \
     rm -rf /var/lib/apt/lists/*
 
-# Install Claude Code CLI globally
-RUN npm install -g @anthropic-ai/claude-code
-
 # Create a non-root user
 RUN useradd -m -s /bin/bash claudeuser
 
@@ -59,5 +56,8 @@ ENV SHELL=/bin/bash
 USER claudeuser
 WORKDIR /workspace
 
+# Install Claude Code
+RUN curl -fsSL https://claude.ai/install.sh | bash
+
 # Default command
-CMD ["bash"]
+CMD ["/home/claudeuser/.local/bin/claude"]
