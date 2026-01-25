@@ -54,10 +54,18 @@ ENV SHELL=/bin/bash
 
 # Switch to non-root user
 USER claudeuser
-WORKDIR /workspace
 
 # Install Claude Code
 RUN curl -fsSL https://claude.ai/install.sh | bash
 
+# Move the .local directory to somewhere else to stop Claude from leaking to outside the sandbox
+USER root
+RUN mv /home/claudeuser/.local/ /opt/claudeuser-local
+RUN ln -s /opt/claudeuser-local/bin/claude /usr/local/bin/claude
+
+# Switch back to the unprivileged user
+USER claudeuser
+WORKDIR /workspace
+
 # Default command
-CMD ["/home/claudeuser/.local/bin/claude"]
+CMD ["claude"]

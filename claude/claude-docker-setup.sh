@@ -33,7 +33,6 @@ build_image() {
     log_info "Building Docker image ${IMAGE_NAME}:${IMAGE_TAG}..."
 
     docker build \
-		--no-cache \
         -t "${IMAGE_NAME}:${IMAGE_TAG}" \
         "${SCRIPT_DIR}"
 
@@ -291,6 +290,8 @@ create_directories() {
     log_info "Creating necessary directories..."
 
     mkdir -p "$HOME/.claude-docker-home/.claude"
+
+	ln -s /opt/claudeuser-local/ $HOME/.claude-docker-home/.local &> /dev/null || true
 
     # Add README to container home if it doesn't exist
     if [[ ! -f "$HOME/.claude-docker-home/README.md" ]]; then
