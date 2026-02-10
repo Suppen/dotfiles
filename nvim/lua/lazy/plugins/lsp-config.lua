@@ -48,17 +48,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			})
 		end, opts)
 
-		-- Format on save
-		if vim.b[ev.buf] == nil or vim.b[ev.buf].format_on_save_set == nil then
-			-- Guard against setting the autocmd multiple times
-			vim.b[ev.buf] = vim.b[ev.buf] or {}
-			vim.b[ev.buf].format_on_save_set = true
-
+		-- Apply ESLint auto-fixes on save
+		if client.name == "eslint" then
 			vim.api.nvim_create_autocmd("BufWritePre", {
 				buffer = ev.buf,
-				callback = function()
-					vim.lsp.buf.format({ async = false })
-				end,
+				command = "LspEslintFixAll",
 			})
 		end
 	end,

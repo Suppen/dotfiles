@@ -33,6 +33,7 @@ build_image() {
     log_info "Building Docker image ${IMAGE_NAME}:${IMAGE_TAG}..."
 
     docker build \
+		--no-cache \
         -t "${IMAGE_NAME}:${IMAGE_TAG}" \
         "${SCRIPT_DIR}"
 
