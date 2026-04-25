@@ -92,12 +92,12 @@ return {
 		"neovim/nvim-lspconfig",
 		dependencies = {
 			"williamboman/mason.nvim",
-			"hrsh7th/cmp-nvim-lsp",
+			"saghen/blink.cmp",
 		},
 		config = function()
 			vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { noremap = true, silent = true })
 
-			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+			local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 			local servers = {
 				"lua_ls",
