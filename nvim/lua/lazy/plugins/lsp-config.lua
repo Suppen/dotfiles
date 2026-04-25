@@ -15,6 +15,21 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			vim.lsp.inlay_hint.enable(true, { buffer = ev.buf })
 		end
 
+		-- in lsp-config.lua, inside the LspAttach callback
+		if client.server_capabilities.documentHighlightProvider then
+			local group = vim.api.nvim_create_augroup("lsp_document_highlight_" .. ev.buf, { clear = true })
+			vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+				buffer = ev.buf,
+				group = group,
+				callback = vim.lsp.buf.document_highlight,
+			})
+			vim.api.nvim_create_autocmd("CursorMoved", {
+				buffer = ev.buf,
+				group = group,
+				callback = vim.lsp.buf.clear_references,
+			})
+		end
+
 		-- Buffer local mappings.
 		-- See `:help vim.lsp.*` for documentation on any of the below functions
 		local opts = { noremap = true, silent = true, buffer = ev.buf }

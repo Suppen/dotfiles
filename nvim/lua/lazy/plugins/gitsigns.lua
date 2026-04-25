@@ -22,7 +22,6 @@ return {
 			end, { desc = "[H]unk [R]eset" })
 			map("n", "<leader>hS", gs.stage_buffer) -- TODO: Add desc
 			map("n", "<leader>hu", gs.undo_stage_hunk, { desc = "[H]unk [U]ndo" })
-			map("n", "<leader>hS", gs.stage_buffer) -- TODO: Add
 			map("n", "<leader>hp", gs.preview_hunk, { desc = "[H]unk [P]review" })
 			map("n", "<leader>hb", function()
 				gs.blame_line({ full = true })

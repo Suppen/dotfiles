@@ -21,11 +21,6 @@ return {
 				["<C-e>"] = cmp.mapping.abort(),
 				["<CR>"] = cmp.mapping.confirm({ select = false }),
 			}),
-			-- snippet = {
-			-- 	expand = function(args)
-			-- 		require("luasnip").lsp_expand(args.body)
-			-- 	end,
-			-- },
 			window = {
 				completion = cmp.config.window.bordered(),
 				documentation = cmp.config.window.bordered(),
@@ -37,7 +32,6 @@ return {
 				{ name = "nvim_lsp_signature_help" },
 				{ name = "path" },
 				{ name = "buffer" },
-				-- { name = "luasnip" },
 			}, {
 				{ name = "buffer" },
 			}),

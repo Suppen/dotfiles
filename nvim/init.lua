@@ -69,7 +69,7 @@ vim.opt.cmdheight = 2
 
 -- Treesitter folding
 vim.wo.foldmethod = "expr"
-vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
+vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt.foldlevel = 99
 
 -- Load plugins

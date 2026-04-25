@@ -16,6 +16,10 @@ return {
 					fg = palette.fg1,
 					bg = palette.bg1,
 				})
+
+				vim.api.nvim_set_hl(0, "LspReferenceText", { link = "Visual" })
+				vim.api.nvim_set_hl(0, "LspReferenceRead", { link = "Visual" })
+				vim.api.nvim_set_hl(0, "LspReferenceWrite", { bold = true, link = "Visual" })
 			end,
 		})
 
