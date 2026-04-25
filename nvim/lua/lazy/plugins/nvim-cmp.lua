@@ -4,12 +4,11 @@ return {
 	"hrsh7th/nvim-cmp",
 	event = "InsertEnter",
 	dependencies = {
-		"hrsh7th/cmp-buffer",            -- Autocomplete from buffer
+		"hrsh7th/cmp-buffer", -- Autocomplete from buffer
 		"hrsh7th/cmp-nvim-lsp-signature-help", -- Show signature help
-		"hrsh7th/cmp-nvim-lsp",          -- Autocomplete from LSP
-		"hrsh7th/cmp-nvim-lua",          -- Autocomplete from Lua
-		"hrsh7th/cmp-path",              -- Autocomplete from path
-		-- "L3MON4D3/LuaSnip",
+		"hrsh7th/cmp-nvim-lsp", -- Autocomplete from LSP
+		"hrsh7th/cmp-nvim-lua", -- Autocomplete from Lua
+		"hrsh7th/cmp-path", -- Autocomplete from path
 	},
 	config = function()
 		local cmp = require("cmp")
@@ -47,7 +46,6 @@ return {
 				format = function(entry, item)
 					local menu_icon = {
 						nvim_lsp = "λ",
-						-- luasnip = "⋗",
 						buffer = "Ω",
 						path = "🖫",
 					}

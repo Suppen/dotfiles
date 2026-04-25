@@ -16,10 +16,9 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 })
 
 -- Look and feel
-vim.opt.lazyredraw = true -- Do not redraw when executing macros
-vim.opt.updatetime = 300  -- Update the cache on disk after this many milliseconds without activity
-vim.opt.mouse = "a"       -- Enable mouse
-vim.opt.scrolloff = 5     -- Show a few lines above/below the cursor when scrolling to top/bottom
+vim.opt.updatetime = 300 -- Update the cache on disk after this many milliseconds without activity
+vim.opt.mouse = "a" -- Enable mouse
+vim.opt.scrolloff = 5 -- Show a few lines above/below the cursor when scrolling to top/bottom
 
 -- Wrap long lines
 vim.opt.wrap = true
@@ -34,7 +33,7 @@ vim.opt.textwidth = 120
 
 -- Search options
 vim.opt.ignorecase = true -- Ignore case when searching
-vim.opt.smartcase = true  -- Don't ignore case when search contains uppercase chars
+vim.opt.smartcase = true -- Don't ignore case when search contains uppercase chars
 
 -- Tab Options
 vim.opt.shiftwidth = 4
