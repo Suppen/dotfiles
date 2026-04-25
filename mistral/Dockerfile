@@ -55,6 +55,9 @@ ENV SHELL=/bin/bash
 # Switch to non-root user
 USER vibeuser
 
+# Add the user-local bin to PATH so the installer's PATH check passes
+ENV PATH="/home/vibeuser/.local/bin:$PATH"
+
 # Install Mistral Vibe
 RUN curl -LsSf https://mistral.ai/vibe/install.sh | bash
 
