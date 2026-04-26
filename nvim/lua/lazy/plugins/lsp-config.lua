@@ -63,6 +63,16 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			})
 		end, opts)
 
+		-- Add key binding to organize imports in TypeScript
+		if client.name == "ts_ls" then
+			vim.keymap.set("n", "<leader>oi", function()
+				vim.lsp.buf.code_action({
+					apply = true,
+					context = { only = { "source.organizeImports" } },
+				})
+			end, opts, { desc = "[O]rganize [I]mports" })
+		end
+
 		-- Apply ESLint auto-fixes on save
 		if client.name == "eslint" then
 			vim.api.nvim_create_autocmd("BufWritePre", {
